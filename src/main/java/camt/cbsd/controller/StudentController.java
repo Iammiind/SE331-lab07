@@ -68,12 +68,13 @@ public class StudentController {
 
     }
 
+
     @POST
-    @Path("/image")
     @Consumes(MediaType.APPLICATION_JSON) //receive
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON) //return
     public Response uploadOnlyStudent(Student student) {
         System.out.println(student);
+        studentService.addStudent(student);
         return Response.ok().entity(student).build();
     }
 
@@ -94,8 +95,9 @@ public class StudentController {
 
     }
 
+
     @POST
-    @Path("/image")
+    @Path("/image") // upload image
     @Consumes({MediaType.MULTIPART_FORM_DATA})
     @Produces({MediaType.TEXT_PLAIN})
     public Response uploadImage(@FormDataParam("file") InputStream fileInputStream, @FormDataParam("file") FormDataContentDisposition cdh) throws IOException {

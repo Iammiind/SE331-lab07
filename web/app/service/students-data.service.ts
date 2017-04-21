@@ -9,15 +9,13 @@ export class StudentsDataService {
     let studentArray:Student[];
     return this.http.get('app/data/people.json')
       .map(res => res.json().students);
-
-
   }
 
   getStudent(id:number){
    return null;
   }
 
-  addStudent(student:Student){
-
+  addStudent(student:Student, imageFile:any){
+    return null;
   }
 }
